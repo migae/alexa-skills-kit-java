@@ -1,3 +1,20 @@
+# Alexa Skills Kit modified to work on  GAE
+
+The official
+https://github.com/amzn/alexa-skills-kit-java[alexa-skills-kit-java]
+uses ` org.apache.commons.lang3.Validate` and
+`org.apache.commons.lang3.StringUtils`, both of which cause security
+exceptions on GAE.
+
+Only a few minor routines from the apache packages are used, though,
+so this fork replaces those packages with `migae.Validate` and
+`migae.StringUtils`, respectively. The code is taken directly from the
+apache source files. So what we're really doing is stripping out
+everything in the apache libs except what the skills kit actually
+uses.
+
+Original README starts here:
+
 # Java Alexa Skills Kit SDK & Samples
 
 ##Alexa Skills Kit Documentation
