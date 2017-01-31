@@ -36,7 +36,9 @@
 (deftask build
   "build and install using boot"
   [v verbose bool "verbose"]
-  (comp (javac)
+  (comp (javac :options ["-source" "1.7", "-target" "1.7"])
         (pom)
+        (uber)
         (jar)
-        (install)))
+        (target)
+        (install :pom "./pom.xml")))
